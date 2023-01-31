@@ -1,5 +1,5 @@
 <div class="contenedor container">
-  <p>Total de Muros Perimetrales Exterior</p>
+  <h2>Total de Muros Perimetrales Exterior</h2>
   <mat-form-field>
     <mat-select placeholder="Muros" [(ngModel)]="selecmuro" name="muro">
       <mat-option *ngFor="let mu of muros" [value]="mu.valor">
@@ -12,6 +12,126 @@
   </mat-form-field>
   <button mat-raised-button color="primary" (click)="sumaMuro(muro.value)">Agregar Item</button> 
 </div>
+<div class="contenedor container">
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="this.total" type="number" placeholder="Total Mts.Lineales">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Paneles" [(ngModel)]="seleccionada" name="panel">
+      <mat-option *ngFor="let op of paneles" [value]="op.valor">
+        {{op.muestraValor}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="this.resultado" type="number"  placeholder="Tot Mts Cuadrados">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="this.resultado1" type="number" placeholder="Cantidad Paneles">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="articuloselect.precio" type="number" placeholder="Precio Unitario">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="this.matTotales" type="number" placeholder="Materiales Totales">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="articuloselect.mobraUni" type="number" placeholder="Mano Obra Unitaria">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="articuloselect.mobraTot" type="number" placeholder="Mano Obra Totales">
+  </mat-form-field>
+  
+  <mat-form-field>
+    <input matInput [(ngModel)]="articuloselect.otros" type="number" placeholder="Otros">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="operar()">Operar</button> 
+  <button mat-raised-button color="primary" (click)="agregar()">Agregar</button>
+  
+
+</div>
+
+<div class="contenedor container">
+  <h2>Total de Muros Perimetrales Interior</h2>
+  <mat-form-field>
+    <mat-select placeholder="Muros" [(ngModel)]="selecmuro" name="muro">
+      <mat-option *ngFor="let mu of muros" [value]="mu.valor">
+        {{mu.muestraValor}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput name="metro" type="number" placeholder="Metros Muro" #muro>
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="sumaMuro(muro.value)">Agregar Item</button> 
+</div>
+
+<div class="contenedor container">
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="this.total" type="number" placeholder="Total Mts.Lineales">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Paneles" [(ngModel)]="seleccionada" name="panel">
+      <mat-option *ngFor="let op of paneles" [value]="op.valor">
+        {{op.muestraValor}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="this.resultado" type="number"  placeholder="Tot Mts Cuadrados">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="this.resultado1" type="number" placeholder="Cantidad Paneles">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="articuloselect.precio" type="number" placeholder="Precio Unitario">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="this.matTotales" type="number" placeholder="Materiales Totales">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="articuloselect.mobraUni" type="number" placeholder="Mano Obra Unitaria">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="articuloselect.mobraTot" type="number" placeholder="Mano Obra Totales">
+  </mat-form-field>
+  
+  <mat-form-field>
+    <input matInput [(ngModel)]="articuloselect.otros" type="number" placeholder="Otros">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="operar()">Operar</button> 
+  <button mat-raised-button color="primary" (click)="agregar()">Agregar</button>
+  
+
+</div>
+
+<div class="contenedor container">
+  <h2>Cubierta de Techos/Sin Aleros</h2>
+  <mat-form-field>
+    <mat-select placeholder="Muros" [(ngModel)]="selecmuro" name="muro">
+      <mat-option *ngFor="let mu of muros" [value]="mu.valor">
+        {{mu.muestraValor}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput name="metro" type="number" placeholder="Metros Muro" #muro>
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="sumaMuro(muro.value)">Agregar Item</button> 
+</div>
+
 <div class="contenedor container">
 
   <mat-form-field>
@@ -109,3 +229,4 @@
   <tr mat-header-row *matHeaderRowDef="columnas"></tr>
   <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
 </table>
+
