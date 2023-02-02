@@ -1,30 +1,35 @@
-<div class="contenedor container" >
+<div>
+  <app-nav-bar></app-nav-bar>
+</div>
+
+<div class="sumaMuroContainer container border rounded mb-5 pt-5" >
   
-  <mat-form-field>
+  <mat-form-field class="mb-4 form-control" appearance="outline">
     <mat-select placeholder="Muros" [(ngModel)]="selecmuro" name="muro">
       <mat-option *ngFor="let mu of muros" [value]="mu.valor">
         {{mu.muestraValor}}
       </mat-option>
     </mat-select>
+    <mat-hint>Elija el Muro</mat-hint>
   </mat-form-field>
-  <mat-form-field>
-    <input matInput name="metro" type="number" placeholder="Metros Muro" #muro>
+  <mat-form-field class="mx-5" appearance="outline">
+    <input matInput name="metro" type="number" placeholder="Metros Muro" #muro>    
   </mat-form-field>
-  <button mat-raised-button color="primary" (click)="sumaMuro(muro.value)">Agregar Item</button> 
+  <button class="btn btn-secondary mb-2" color="primary" (click)="sumaMuro(muro.value)">Agregar Metros</button> 
   <ul *ngFor="let pepe of datos1">
-    <li> {{pepe}} </li>
+    <li class="mt-2"> {{pepe}} </li>
   </ul>
  </div>
  
     
   
-<div class="contenedor container" >
+<div class="contenedor container border rounded mb-5" >
 
-  <mat-form-field>
+  <mat-form-field class="mx-3">
     <input matInput [(ngModel)]="this.total" type="number" placeholder="Total Mts.Lineales">
   </mat-form-field>
 
-  <mat-form-field>
+  <mat-form-field class="mx-3">
     <mat-select placeholder="Paneles" [(ngModel)]="seleccionada" name="panel">
       <mat-option *ngFor="let op of paneles" [value]="op.valor">
         {{op.muestraValor}}
@@ -40,79 +45,84 @@
     <input matInput [(ngModel)]="this.resultado1" type="number" placeholder="Cantidad Paneles">
   </mat-form-field>
   ---->
-  <mat-form-field>
+  <mat-form-field class="mx-3">
     <input matInput [(ngModel)]="articuloselect.precio" type="number" placeholder="Precio Unitario">
+    <span matTextPrefix>$&nbsp;</span>
   </mat-form-field>
  
-  <mat-form-field>
+  <mat-form-field class="mx-3">
     <input matInput [(ngModel)]="articuloselect.mobraUni" type="number" placeholder="Mano Obra Unitaria">
+    <span matTextPrefix>$&nbsp;</span>
   </mat-form-field>
     
-  <mat-form-field>
+  <mat-form-field class="mx-3">
     <input matInput [(ngModel)]="articuloselect.otros" type="number" placeholder="Otros" (change)="operar()">
+    <span matTextPrefix>$&nbsp;</span>
   </mat-form-field>
 
-  <button mat-raised-button color="primary" (click)="operar()">Operar</button> 
+  <button class="mx-2" mat-raised-button color="primary" (click)="operar()">Operar</button> 
   <button mat-raised-button color="primary" (click)="agregar()">Agregar</button>
   
 
 </div>
 
 
-<table mat-table [dataSource]="datos" class="mat-elevation-z8" #tabla1>
-
-  <ng-container matColumnDef="metrosL">
-    <th mat-header-cell *matHeaderCellDef> Metros Lineales </th>
-    <td mat-cell *matCellDef="let articulo"> {{articulo.metrosL}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="tipoPanel">
-    <th mat-header-cell *matHeaderCellDef> Tipo Panel </th>
-    <td mat-cell *matCellDef="let articulo"> {{articulo.tipoPanel}} </td>
-  </ng-container>
-  <ng-container matColumnDef="totM2">
-    <th mat-header-cell *matHeaderCellDef> Total Mtr Cuadrados </th>
-    <td mat-cell *matCellDef="let articulo"> {{articulo.totM2}} </td>
-  </ng-container>
-  <ng-container matColumnDef="cPaneles">
-    <th mat-header-cell *matHeaderCellDef> Cantidad Paneles </th>
-    <td mat-cell *matCellDef="let articulo"> {{articulo.cPaneles | number}} </td>
-  </ng-container>
-  <ng-container matColumnDef="precio">
-    <th mat-header-cell *matHeaderCellDef> Precio </th>
-    <td mat-cell *matCellDef="let articulo"> {{articulo.precio | currency}} </td>
+<div class="container">
+  <table mat-table [dataSource]="datos" class="mat-elevation-z8" #tabla1>
+  
+    <ng-container matColumnDef="metrosL">
+      <th mat-header-cell *matHeaderCellDef> Metros Lineales </th>
+      <td mat-cell *matCellDef="let articulo"> {{articulo.metrosL}} </td>
     </ng-container>
-    <ng-container matColumnDef="matTotales">
-      <th mat-header-cell *matHeaderCellDef> Materiales Totales </th>
-      <td mat-cell *matCellDef="let articulo"> {{articulo.matTotales | currency}} </td>
-      </ng-container> 
-  <ng-container matColumnDef="mobraUni">
-    <th mat-header-cell *matHeaderCellDef> Mano Obra Unitaria </th>
-    <td mat-cell *matCellDef="let articulo"> {{articulo.mobraUni | currency}} </td>
-  </ng-container>
-  <ng-container matColumnDef="mobraTot">
-    <th mat-header-cell *matHeaderCellDef> Mano Obra Totales </th>
-    <td mat-cell *matCellDef="let articulo"> {{articulo.mobraTot | currency}} </td>
-  </ng-container>
-  <ng-container matColumnDef="otros">
-    <th mat-header-cell *matHeaderCellDef> Otros </th>
-    <td mat-cell *matCellDef="let articulo"> {{articulo.otros | currency}} </td>
-  </ng-container>
-  <ng-container matColumnDef="totales">
-    <th mat-header-cell *matHeaderCellDef> Totales </th>
-    <td mat-cell *matCellDef="let articulo"> {{articulo.totales | currency}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="borrar">
-    <th mat-header-cell *matHeaderCellDef> Borra? </th>
-    <td mat-cell *matCellDef="let j = index;">
-      <button mat-raised-button color="warn" focusable="false" (click)="borrarFila(j)">
-        Borra?
-      </button>
-    </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="columnas"></tr>
-  <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
-</table>
+  
+    <ng-container matColumnDef="tipoPanel">
+      <th mat-header-cell *matHeaderCellDef> Tipo Panel </th>
+      <td mat-cell *matCellDef="let articulo"> {{articulo.tipoPanel}} </td>
+    </ng-container>
+    <ng-container matColumnDef="totM2">
+      <th mat-header-cell *matHeaderCellDef> Total Mtr Cuadrados </th>
+      <td mat-cell *matCellDef="let articulo"> {{articulo.totM2}} </td>
+    </ng-container>
+    <ng-container matColumnDef="cPaneles">
+      <th mat-header-cell *matHeaderCellDef> Cantidad Paneles </th>
+      <td mat-cell *matCellDef="let articulo"> {{articulo.cPaneles | number}} </td>
+    </ng-container>
+    <ng-container matColumnDef="precio">
+      <th mat-header-cell *matHeaderCellDef> Precio </th>
+      <td mat-cell *matCellDef="let articulo"> {{articulo.precio | currency}} </td>
+      </ng-container>
+      <ng-container matColumnDef="matTotales">
+        <th mat-header-cell *matHeaderCellDef> Materiales Totales </th>
+        <td mat-cell *matCellDef="let articulo"> {{articulo.matTotales | currency}} </td>
+        </ng-container>
+    <ng-container matColumnDef="mobraUni">
+      <th mat-header-cell *matHeaderCellDef> Mano Obra Unitaria </th>
+      <td mat-cell *matCellDef="let articulo"> {{articulo.mobraUni | currency}} </td>
+    </ng-container>
+    <ng-container matColumnDef="mobraTot">
+      <th mat-header-cell *matHeaderCellDef> Mano Obra Totales </th>
+      <td mat-cell *matCellDef="let articulo"> {{articulo.mobraTot | currency}} </td>
+    </ng-container>
+    <ng-container matColumnDef="otros">
+      <th mat-header-cell *matHeaderCellDef> Otros </th>
+      <td mat-cell *matCellDef="let articulo"> {{articulo.otros | currency}} </td>
+    </ng-container>
+    <ng-container matColumnDef="totales">
+      <th mat-header-cell *matHeaderCellDef> Totales </th>
+      <td mat-cell *matCellDef="let articulo"> {{articulo.totales | currency}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="borrar">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let j = index;">
+        <button mat-raised-button color="warn" focusable="false" (click)="borrarFila(j)">
+          Borra?
+        </button>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+    <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
+  </table>
+</div>
 

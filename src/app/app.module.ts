@@ -6,16 +6,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import {FormsModule} from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
+import { MatButtonModule, MatIconButton } from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { NavBarComponent } from './component/nav-bar/nav-bar.component';
+
 
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatButtonModule,
     FormsModule,
     MatFormFieldModule,
-    MatSelectModule  
+    MatSelectModule,      
   ],
   providers: [],
   bootstrap: [AppComponent]
