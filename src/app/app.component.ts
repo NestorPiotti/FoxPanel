@@ -1,5 +1,6 @@
 import { Component , ViewChild} from '@angular/core';
 import { MatTable } from '@angular/material/table';
+import { miPipe } from './pipes/miPipe';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,8 @@ export class AppComponent {
 
   datos: Articulo[] = [];
   datos1: any = []; 
-  datos2:any=[];
+  datos2: any=[];
+  seleccion: string = this.datos2[0];
 
   metrosL!:number;
   resultado!:number;
@@ -38,19 +40,20 @@ export class AppComponent {
 
   seleccionada: string = this.paneles[0].valor;
   
-  muros = [
-    {valor:'Muro 1', muestraValor:'Muro 1'},
-    {valor:'Muro 2', muestraValor:'Muro 2'},
-    {valor:'Muro 3', muestraValor:'Muro 3'},
-    {valor:'Muro 5', muestraValor:'Muro 5'},
+  
+  alMuros = [
+    {id:1,Valor:2.84},
+    {id:2,Valor:3.05},
+    {id:3,Valor:3.25},
+    {id:4,Valor:3.66},
     
   ];
 
-  selecmuro: string = this.muros[0].valor;
-       
+  selecalMuro: number = this.alMuros[0].Valor;
+     
   operar() {
     
-       this.resultado = this.total * this.altura;
+       this.resultado = this.total * this.selecalMuro;
        this.resultado1=this.resultado/this.mt2;  
        this.matTotales=this.resultado1*this.articuloselect.precio; 
        this.mobraTot=this.resultado1*this.articuloselect.mobraUni;
@@ -80,19 +83,19 @@ export class AppComponent {
 
 sumaMuro(muros: string){
   this.datos1.push(parseInt(muros))
-  let total=this.datos1.reduce((a: any,b: any)=>a+b,0);
-  this.datos2=this.selecmuro;
-  console.log(this.datos2);
+   let total=this.datos1.reduce((a: any,b: any)=>a+b,0);
+   this.datos2=this.seleccion;
+   console.log(this.datos2);
   console.log(this.datos1);
   this.total= total;
    }
-   muestraMuro(muroM:string){
-    
-      }
-    
-  
-   }
+muestra(caja1:string){
+   this.datos2.push(caja1);
+   this.datos2=this.seleccion;
+   
+}
  
+  } 
 export class Articulo {
   
   constructor(public metrosL: number, public tipoPanel: string,public totM2: number ,public cPaneles: number,
