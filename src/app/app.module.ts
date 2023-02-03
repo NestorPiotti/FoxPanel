@@ -6,18 +6,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import {FormsModule} from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
+import { MatButtonModule, MatIconButton } from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
-import { miPipe } from './pipes/miPipe';
 
 
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    miPipe
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +25,7 @@ import { miPipe } from './pipes/miPipe';
     MatButtonModule,
     FormsModule,
     MatFormFieldModule,
-    MatSelectModule  
+    MatSelectModule,      
   ],
   providers: [],
   bootstrap: [AppComponent]
