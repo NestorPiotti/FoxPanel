@@ -1,19 +1,18 @@
 <div class="contenedor container" >
   
   <mat-form-field>
-    <mat-select placeholder="Muros" [(ngModel)]="selecmuro" name="muro">
-      <mat-option *ngFor="let mu of muros" [value]="mu.valor">
-        {{mu.muestraValor}}
-      </mat-option>
-    </mat-select>
+    <mat-form-field>
+      <input matInput name="muros" type="string" placeholder="Muros" #muroM>
+    </mat-form-field>
   </mat-form-field>
   <mat-form-field>
-    <input matInput name="metro" type="number" placeholder="Metros Muro" #muro>
+    <input matInput name="metro" type="number" placeholder="Metros Muro" #muroM>
   </mat-form-field>
-  <button mat-raised-button color="primary" (click)="sumaMuro(muro.value)">Agregar Item</button> 
-  <ul *ngFor="let pepe of datos1">
-    <li> {{pepe}} </li>
+  <button mat-raised-button color="primary" (click)="sumaMuro(muroM.value)">Agregar Item</button> 
+  <ul *ngFor="let metros of datos1">
+    <li> {{datos2}} = {{metros | mipipe}} </li>
   </ul>
+ 
  </div>
  
     

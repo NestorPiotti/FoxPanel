@@ -12,6 +12,7 @@ export class AppComponent {
 
   datos: Articulo[] = [];
   datos1: any = []; 
+  datos2:any=[];
 
   metrosL!:number;
   resultado!:number;
@@ -80,11 +81,18 @@ export class AppComponent {
 sumaMuro(muros: string){
   this.datos1.push(parseInt(muros))
   let total=this.datos1.reduce((a: any,b: any)=>a+b,0);
-  console.log(this.datos1)
+  this.datos2=this.selecmuro;
+  console.log(this.datos2);
+  console.log(this.datos1);
   this.total= total;
    }
+   muestraMuro(muroM:string){
+    
+      }
+    
   
- }
+   }
+ 
 export class Articulo {
   
   constructor(public metrosL: number, public tipoPanel: string,public totM2: number ,public cPaneles: number,
