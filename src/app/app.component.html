@@ -5,21 +5,21 @@
 <div class="sumaMuroContainer container border rounded mb-5 pt-5" >
   
   <mat-form-field>
-    <input matInput [(ngModel)]="seleccion" type="string" placeholder="Muros" #murito>
+    <mat-label>muro</mat-label>
+    <input matInput name="muro"  [(ngModel)]="cajasTexto.muro" type="text" class="mat-form-field" placeholder="Muros" id="muro"#murito >
   </mat-form-field>
   <mat-form-field>
-    <input matInput name="metro" type="number" placeholder="Metros Muro" #muro>
+    <input matInput name="metros"  [(ngModel)]="cajasTexto.metros" type="number" class="mat-form-field" placeholder="Metros Muro" id="metros" #muro>
   </mat-form-field>
-  <button mat-raised-button color="primary" (click)="sumaMuro(muro.value)">Agregar Item</button> 
+
+  <button mat-raised-button color="primary"  (click)="sumaMuro(m)" #m>Agregar Item</button> 
   <ul *ngFor="let pepe of datos1">
-    <li> {{pepe}} </li>
-  </ul>
- 
+    <li> {{pepe | mipipe}}</li>
+     </ul>
+   
  </div>
- 
-    
-  
-<div class="contenedor container border rounded mb-5" >
+   
+<div class="contenedor container border rounded mb-5"  >
 
   <mat-form-field class="mx-3">
     <input matInput [(ngModel)]="this.total" type="number" placeholder="Total Mts.Lineales">
@@ -65,11 +65,10 @@
 
   <button class="mx-2" mat-raised-button color="primary" (click)="operar()">Operar</button> 
   <button mat-raised-button color="primary" (click)="agregar()">Agregar</button>
-  
+ </div>
+ 
 
-</div>
-
-
+ 
 <div class="container">
   <table mat-table [dataSource]="datos" class="mat-elevation-z8" #tabla1>
   

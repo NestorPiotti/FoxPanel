@@ -2,12 +2,11 @@
     width: 50%;
     margin:1rem auto;
  } */
-
  .sumaMuroContainer{
    display: flex;
    justify-content: center;
    align-items: center;
-   flex-direction: column;
+   flex-direction:column;
    margin: 1rem auto;
    padding: 1rem;
    width: 30rem;
@@ -34,8 +33,5 @@
 mat-form-field{
    font-size: 14px;
    
-   
-}
-mat-form-field input{
    
 }
