@@ -2,6 +2,7 @@ import { Component , ViewChild} from '@angular/core';
 import { MatTable } from '@angular/material/table';
 import { miPipe } from './pipes/miPipe';
 import { validateVerticalPosition } from '@angular/cdk/overlay';
+import {MatButtonModule} from '@angular/material/button'
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,7 @@ export class AppComponent {
   datos: Articulo[] = [];
   datos1:any=[];
   datos2:any=[];
+  series = [];
   
   metrosL!:number;
   resultado!:number;
@@ -27,7 +29,7 @@ export class AppComponent {
   muro!:number;
   total!:number;
   totales!:number;
-
+  cod1!:number;
 
   paneles = [
     {valor:'PMO 90', muestraValor:'PMO 90'},
@@ -51,6 +53,7 @@ export class AppComponent {
   ];
 
   selecalMuro: number = this.alMuros[0].Valor;
+metro: any;
  
   
   operar() {
@@ -86,21 +89,36 @@ export class AppComponent {
   sumaMuro(metro: string){
     this.datos1.push(parseInt(metro))
     let total=this.datos1.reduce((a: any,b: any)=>a+b,0);
-    console.log(this.datos1)
     this.total= total;
   }
 
   muestraMuro(muro:string){
     this.datos2.push(muro)
-    console.log(this.datos2)
   }
+
+  funciona(){
+   this.series = this.datos2.map((x: { toString: () => any; }, i: string | number) => ({
+    muro: x.toString(),
+    metros: this.datos1[i],
+     
+  }));
+ console.log(this.series)
   
 }
+
+borraItem(cod1:number){
+  if (confirm("Realmente quiere borrarlo?")) {
+    this.series.splice(cod1, 1);
+    //this.tabla2.renderRows();
+  }
+ }
+}
+
 export class Articulo {
   
   constructor(public metrosL: number, public tipoPanel: string,public totM2: number ,public cPaneles: number,
     public precio: number,public matTotales:number,public mobraUni: number,
-    public mobraTot: number,public totales: number,public otros: number) {
+    public mobraTot: number,public otros: number,public totales: number) {
   }
 
 }

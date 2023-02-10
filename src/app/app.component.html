@@ -4,33 +4,28 @@
 
 <div class="sumaMuroContainer container border rounded mb-5 pt-5" >
   
+  <mat-form-field appearance="outline">
+    <mat-label>Ingrese Muro</mat-label>
+    <input matInput name="muro"  type="text"  class="mat-form-field"  id="muro"#muro >
+    
+  </mat-form-field>
   <mat-form-field>
-    <mat-label>muro</mat-label>
-    <input  matInput name="muro"   type="text" class="mat-form-field" placeholder="Muros" #muro >
+    <input matInput name="metros"   type="number" class="mat-form-field" placeholder="Metros Muro" id="metros" #metro>
   </mat-form-field>
 
-  <mat-form-field>
-    <mat-label>metros</mat-label>
-    <input matInput name="metros" type="number" class="mat-form-field" placeholder="Metros Muro" #metro >
-  </mat-form-field>
+  <button class="btn btn-secondary" (click)="sumaMuro(metro.value)" (click)="muestraMuro(muro.value)" (click)="funciona()">Agregar metros</button> 
  
-  <button mat-raised-button color="primary"  (click)="sumaMuro(metro.value)" (click)="muestraMuro(muro.value)">Agregar Item</button> 
-
-  <div class="muestraMuroContainer container border rounded mb-5 pt-5" >
-    <ul *ngFor="let jose of datos2">
-      <li> {{jose }}</li>
-    </ul>
-    <ul *ngFor="let pepe of datos1">
-        <li>{{pepe | mipipe}}</li>
-    </ul>
-      
-  
-   
-
-  </div>
-   
  </div>
-   
+ <div class="nestorContenedor container">
+
+  <ul *ngFor="let item of series">
+     <p *ngFor="let itemAux of item | keyvalue">
+     <li>{{itemAux.key}}:{{itemAux.value}}--</li>
+     </p>
+  </ul>
+  <button class="mx-2" mat-raised-button color="primary" (click)="borraItem(cod1)">Borrar Metros</button>   
+</div>
+    
 <div class="contenedor container border rounded mb-5"  >
 
   <mat-form-field class="mx-3">
@@ -71,7 +66,7 @@
   </mat-form-field>
     
   <mat-form-field class="mx-3">
-    <input matInput [(ngModel)]="articuloselect.otros" type="number" placeholder="Otros" (change)="operar()">
+    <input matInput [(ngModel)]="articuloselect.otros" type="number" placeholder="Otros" >
     <span matTextPrefix>$&nbsp;</span>
   </mat-form-field>
 
@@ -129,8 +124,8 @@
     <ng-container matColumnDef="borrar">
       <th mat-header-cell *matHeaderCellDef> Actions </th>
       <td mat-cell *matCellDef="let j = index;">
-        <button mat-raised-button color="warn" focusable="false" (click)="borrarFila(j)">
-          Borra?
+        <button mat-mini-fab color="warn" (click)="borrarFila(j)">
+          <mat-icon>delete</mat-icon>
         </button>
       </td>
     </ng-container>

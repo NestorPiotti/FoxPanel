@@ -26,6 +26,18 @@
    background-color: white;
  }
 
+ .nestorContenedor{
+   display: flex;
+   justify-content: left;
+   align-items: row;
+   flex-direction:row;
+   margin: 1rem auto;
+   padding: 1rem;
+   width: 30rem;
+   background-color: white;
+
+ }
+
  .contenedor {
     display: flex;  
     justify-content: center;
