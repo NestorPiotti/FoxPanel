@@ -2,6 +2,7 @@ import { Component , ViewChild} from '@angular/core';
 import { MatTable } from '@angular/material/table';
 import { miPipe } from './pipes/miPipe';
 import { validateVerticalPosition } from '@angular/cdk/overlay';
+import {MatButtonModule} from '@angular/material/button'
 
 @Component({
   selector: 'app-root',
