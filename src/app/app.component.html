@@ -6,16 +6,28 @@
   
   <mat-form-field>
     <mat-label>muro</mat-label>
-    <input matInput name="muro"  [(ngModel)]="cajasTexto.muro" type="text" class="mat-form-field" placeholder="Muros" id="muro"#murito >
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput name="metros"  [(ngModel)]="cajasTexto.metros" type="number" class="mat-form-field" placeholder="Metros Muro" id="metros" #muro>
+    <input  matInput name="muro"   type="text" class="mat-form-field" placeholder="Muros" #muro >
   </mat-form-field>
 
-  <button mat-raised-button color="primary"  (click)="sumaMuro(m)" #m>Agregar Item</button> 
-  <ul *ngFor="let pepe of datos1">
-    <li> {{pepe | mipipe}}</li>
-     </ul>
+  <mat-form-field>
+    <mat-label>metros</mat-label>
+    <input matInput name="metros" type="number" class="mat-form-field" placeholder="Metros Muro" #metro >
+  </mat-form-field>
+ 
+  <button mat-raised-button color="primary"  (click)="sumaMuro(metro.value)" (click)="muestraMuro(muro.value)">Agregar Item</button> 
+
+  <div class="muestraMuroContainer container border rounded mb-5 pt-5" >
+    <ul *ngFor="let jose of datos2">
+      <li> {{jose }}</li>
+    </ul>
+    <ul *ngFor="let pepe of datos1">
+        <li>{{pepe | mipipe}}</li>
+    </ul>
+      
+  
+   
+
+  </div>
    
  </div>
    

@@ -13,14 +13,9 @@ export class AppComponent {
   ,'otros','totales','borrar'];
 
   datos: Articulo[] = [];
-  datos1:[] = [] ; 
+  datos1:any=[];
+  datos2:any=[];
   
-  cajasTexto = {
-      "muro":"" ,
-      "metros":"",
-    };
-    
-   
   metrosL!:number;
   resultado!:number;
   resultado1!:number;
@@ -32,7 +27,7 @@ export class AppComponent {
   muro!:number;
   total!:number;
   totales!:number;
- metros!:number;
+
 
   paneles = [
     {valor:'PMO 90', muestraValor:'PMO 90'},
@@ -56,6 +51,7 @@ export class AppComponent {
   ];
 
   selecalMuro: number = this.alMuros[0].Valor;
+ 
   
   operar() {
     
@@ -87,16 +83,19 @@ export class AppComponent {
     this.articuloselect = new Articulo(0,"",0,0,0,0,0,0,0,0);
   }
   
-sumaMuro(m: any){
-  //this.cajasTexto.push(m)
-  //let total=this.cajasTexto.reduce((a: any,b: any)=>a+b,0);
-   //this.total= total;
-  //console.log(this.datos1)
-  console.log(this.cajasTexto)
+  sumaMuro(metro: string){
+    this.datos1.push(parseInt(metro))
+    let total=this.datos1.reduce((a: any,b: any)=>a+b,0);
+    console.log(this.datos1)
+    this.total= total;
+  }
+
+  muestraMuro(muro:string){
+    this.datos2.push(muro)
+    console.log(this.datos2)
   }
   
-  
-} 
+}
 export class Articulo {
   
   constructor(public metrosL: number, public tipoPanel: string,public totM2: number ,public cPaneles: number,
