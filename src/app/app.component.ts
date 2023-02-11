@@ -17,6 +17,7 @@ export class AppComponent {
   datos1:any=[];
   datos2:any=[];
   series = [];
+  muestradiv: Boolean = false;
   
   metrosL!:number;
   resultado!:number;
@@ -98,11 +99,17 @@ metro: any;
 
   funciona(){
    this.series = this.datos2.map((x: { toString: () => any; }, i: string | number) => ({
-    muro: x.toString(),
-    metros: this.datos1[i],
+    Descripcion: x,
+    Metros: this.datos1[i],
      
   }));
- console.log(this.series)
+ console.log(this.datos2.length)
+
+ //solo sirve para mostrar el div de muros cuando no es vacio
+ if (this.datos2.length != 0 ) {
+  this.muestradiv = true    
+}
+ 
   
 }
 
@@ -111,7 +118,7 @@ borraItem(cod1:number){
     this.series.splice(cod1, 1);
     //this.tabla2.renderRows();
   }
- }
+ } 
 }
 
 export class Articulo {

@@ -13,29 +13,20 @@
    background-color: white;
 
  }
-
- .muestraMuroContainer{
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   flex-direction:row;
-   margin: 1rem auto;
-   padding: 1rem;
-   width: 25rem;
-   height: 1rem;
-   background-color: white;
- }
-
- .nestorContenedor{
+ .muroIngresado{
    display: flex;
    justify-content: left;
-   align-items: row;
-   flex-direction:row;
-   margin: 1rem auto;
+   align-items:flex-start;      
    padding: 1rem;
-   width: 30rem;
+   margin: 1rem;
+   width: fit-content;      
    background-color: white;
+   
 
+ }
+ ul li.listaMuro{
+  list-style: none;
+  
  }
 
  .contenedor {
@@ -46,16 +37,8 @@
     padding: 1rem;
     background-color: whitesmoke;
 
-}  
-
-.form-control{
-   width: 15rem;
-   border: none;   
-   
 }
-
 mat-form-field{
-   font-size: 14px;
-   
+   font-size: 14px;   
    
 }
